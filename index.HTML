@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fictional Pricing Page</title>
+    <link rel="stylesheet" href="project1.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+        }
+
+        .pricing-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 70vh;
+        }
+
+        .pricing-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 1em;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+            cursor: pointer;
+        }
+
+        .pricing-card:hover {
+            transform: scale(1.05);
+        }
+
+        .pricing-header {
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+        }
+
+        .price {
+            font-size: 30px;
+            margin: 0;
+            color: #007bff;
+        }
+
+        .features {
+            padding: 1em;
+        }
+
+        .feature-item {
+            list-style-type: square;
+            margin: 0.5em 0;
+        }
+
+        .cta-button {
+            display: block;
+            width: 100%;
+            padding: 0.5em;
+            text-align: center;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .cta-button:hover {
+            background-color: #0056b3;
+        }
+
+        .toggle-message {
+            background-color: #ffd700;
+            width: fit-content;
+            padding: 0.5em;
+            text-align: center;
+            margin-top: 1em;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Fictional Pricing Page</h1>
+    </header>
+
+    <div class="pricing-container">
+
+        <div class="pricing-card" id="basic-plan">
+            <div class="pricing-header">
+                <h2>Basic Plan</h2>
+            </div>
+            <div class="price">$15.99/month</div>
+            <ul class="features">
+                <li class="feature-item">Access to essential features</li>
+                <li class="feature-item">Limited storage space</li>
+                <li class="feature-item">Email support</li>
+            </ul>
+            <a href="#" class="cta-button">Get Started</a>
+        </div>
+
+        <div class="pricing-card" id="pro-plan">
+            <div class="pricing-header">
+                <h2>Pro Plan</h2>
+            </div>
+            <div class="price">$35.99/month</div>
+            <ul class="features">
+                <li class="feature-item">Access to all basic features</li>
+                <li class="feature-item">Expanded storage space</li>
+                <li class="feature-item">Priority email and chat support</li>
+                <li class="feature-item">Advanced analytics and reporting</li>
+            </ul>
+            <a href="#" class="cta-button">Get Started</a>
+        </div>
+
+        <div class="pricing-card" id="premium-plan">
+            <div class="pricing-header">
+                <h2>Premium Plan</h2>
+            </div>
+            <div class="price">$55.99/month</div>
+            <ul class="features">
+                <li class="feature-item">Access to all basic features</li>
+                <li class="feature-item">Expanded storage space</li>
+                <li class="feature-item">Priority email and chat support</li>
+                <li class="feature-item">Advanced analytics and reporting</li>
+                <li class="feature-item">Access to the Intermediate courses for 18-months</li>
+            </ul>
+            <a href="#" class="cta-button">Get Started</a>
+        </div>
+
+    </div>
+    <div class="msg"> </div>
+
+    <script>
+        function toggleMessage(cardId, message, timeout) {
+            const msgContainer = document.querySelector('.msg');
+            const messageContainer = document.createElement('div');
+            messageContainer.innerText = message;
+            messageContainer.classList.add('toggle-message');
+
+            msgContainer.innerHTML = ''; // Clear previous messages
+            msgContainer.appendChild(messageContainer);
+
+            setTimeout(() => {
+                messageContainer.remove();
+            }, timeout);
+        }
+
+        document.getElementById('basic-plan').addEventListener('click', function () {
+            toggleMessage('basic-plan', 'You hvae selected for Basic plan', 3000);
+        });
+
+        document.getElementById('pro-plan').addEventListener('click', function () {
+            toggleMessage('pro-plan', 'You hvae selected for Pro plan', 3000);
+        });
+
+        document.getElementById('premium-plan').addEventListener('click', function () {
+            toggleMessage('premium-plan', 'You hvae selected for Premium Plan', 3000);
+        });
+    </script>
+
+</body>
+</html>
